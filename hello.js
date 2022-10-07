@@ -32,16 +32,18 @@ let vepřík = 0
 function gold(field) {
 let a = field.length
     for (let i = 0; i < a; i++) {
-         if (field[0] > field[field.length - 1] && i % 2 === 0){
+        if (i % 2 === 0){
+         if (field[0] >= field[field.length - 1]){
             petřík += field[0]
             field.shift()
-
         }
-        else if (field[0] < field[field.length -1] && i % 2 === 0){
-            petřík += field[field.length - 1]
-            field.pop()
+         else if (field[0] < field[field.length -1]){
+                petřík += field[field.length - 1]
+                field.pop()
+            }
         }
-       else  if( field[0] > field[field.length - 1] ){
+        else {
+            if(field[0] >= field[field.length - 1]){
             vepřík += field[0]
             field.shift()
 
@@ -49,12 +51,14 @@ let a = field.length
         else if (field[0] < field[field.length - 1]){
             vepřík += field[field.length - 1]
             field.pop()
-        }
+        }}
+
 
 
     }
+    console.log(petřík)
     console.log(vepřík)
-    console.log(petřík);
+
 
 }
 gold(golding)
